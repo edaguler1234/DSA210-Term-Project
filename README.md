@@ -53,8 +53,8 @@ The .CSV file will contain this format:
 
 ### 2. **Hypothesis Testing**  
 - Example:  
-  > H₀: Average screen time on exam days equals average screen time on regular days.  
-  > H₁: Average screen time on exam days is lower.  
+  - H₀: Average screen time on exam days equals average screen time on regular days.  
+  - H₁: Average screen time on exam days is lower.  
 - Apply hypothesis tests where appropriate.
 
 ### 3. **ML Model**  
