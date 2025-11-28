@@ -31,10 +31,13 @@ The .CSV file will contain this format:
 | Variable | Description | Type |
 |-----------|-------------|------|
 | date | Observation date | Date |
-| total minutes | Total screen time in minutes | Numerical |
-| social minutes | Time spent on social apps | Numerical |
-| productivity minutes | Time spent on productivity apps | Numerical |
-| entertainment minutes | Time spent on entertainment apps | Numerical |
+| total_minutes | Total screen time in minutes | Numerical |
+| social_minutes | Time spent on social apps | Numerical |
+| productivity&finance_minutes | Time spent on productivity or finance apps | Numerical |
+| entertainment_minutes | Time spent on entertainment apps | Numerical |
+| creativty_minutes | Time spent on creativity apps | Numerical |
+| travel_minutes | Time spent on travel apps | Numerical |
+| shopping&food_minutes | Time spent on shopping or food apps | Numerical |
 | notifications | Number of notifications received | Numerical |
 | pickups | Number of device pickups | Numerical |
 | sleep hours | Total sleep hours (from Apple Health) | Numerical |
