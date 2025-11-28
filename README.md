@@ -38,14 +38,16 @@ The .CSV file will contain this format:
 | creativty_minutes | Time spent on creativity apps | Numerical |
 | travel_minutes | Time spent on travel apps | Numerical |
 | shopping&food_minutes | Time spent on shopping or food apps | Numerical |
+| reading_minutes | Time spent on reading apps | Numerical |
+| games_minutes | Time spent on game apps | Numerical |
+| other_minutes | Time spent on apps which belong to other areas | Numerical |
 | notifications | Number of notifications received | Numerical |
+| most_notified_app | The app that gets most of the notifications at that day (and its number) | 
 | pickups | Number of device pickups | Numerical |
-| sleep hours | Total sleep hours (from Apple Health) | Numerical |
+| most_used_after_pickup | The most used app just after the pickups (and its number) | 
 | exam day | 1 if exam day, else 0 | Binary |
-| trip | 1 if travel/vacation day, else 0 | Binary |
 | activity | 1 if exercise/social activity day, else 0 | Binary |
 | weekend | 1 if weekend, 0 otherwise | Binary |
-| phase | Control (normal) or experiment (e.g., notification limit) | Categorical |
 
 ## Methodology  
 ### 1. **Exploratory Data Analysis (EDA)**  
