@@ -41,26 +41,91 @@ The .CSV file will contain this format:
 | reading_minutes | Time spent on reading apps | Numerical |
 | games_minutes | Time spent on game apps | Numerical |
 | other_minutes | Time spent on apps which belong to other areas | Numerical |
-| notifications | Number of notifications received | Numerical |
-| most_notified_app | The app that gets most of the notifications at that day (and its number) | 
+| notifications | Number of notifications received | Numerical | 
 | pickups | Number of device pickups | Numerical |
-| most_used_after_pickup | The most used app just after the pickups (and its number) | 
 | exam day | 1 if exam day, else 0 | Binary |
 | activity | 1 if exercise/social activity day, else 0 | Binary |
 | weekend | 1 if weekend, 0 otherwise | Binary |
 
-## Methodology  
-### 1. **Exploratory Data Analysis (EDA)**  
-- Visualize screen time distribution and weekly patterns.  
-- Compute correlations between screen time and contextual variables.  
-- Examine behavioral differences between control and experimental phases.  
-- Identify outliers and trends in daily activity.  
+## Methods
+### 1. Exploratory Data Analysis (EDA)
 
-### 2. **Hypothesis Testing**  
-- Example:  
-  - H₀: Average screen time on exam days equals average screen time on regular days.  
-  - H₁: Average screen time on exam days is lower.  
-- Apply hypothesis tests where appropriate.
+The EDA explores my daily screen time patterns across different categories such as social media, productivity, entertainment, creativity, games, and others. The goal of this section was to understand the general behavior of my screen usage and identify early patterns that could support later hypothesis testing and modeling.
+
+#### Key Findings
+
+1. **Daily Screen Time Trends**  
+   A line plot of total screen time across the recording period shows fluctuations from day to day, with certain peaks likely related to weekends or days without academic responsibilities.
+
+2. **Category-Level Behavior**  
+   Different categories (social, productivity, entertainment, creativity, games, etc.) show distinct usage patterns. Productivity and social categories tend to make up most of the total screen time, while categories like creativity and reading remain relatively low.
+
+3. **Notifications and Pickups**  
+   Scatter plots reveal a weak but noticeable positive relationship between:  
+   - notifications and total screen time  
+   - device pickups and total screen time  
+   This suggests that more frequent phone interactions are associated with higher usage, although the correlation is not very strong.
+
+4. **Correlation Analysis**  
+   A correlation heatmap shows meaningful relationships among screen time categories. Productivity minutes negatively correlate with social and entertainment minutes, while total screen time is strongly influenced by categories like productivity, games, and other usage.
+
+5. **Normal vs Special Days**  
+   Days labeled as Normal Days (no exam and no activity) show higher usage in several categories compared to Special Days (exam or activity days). Special Days generally show lower screen time, especially in productivity and social categories.
+
+6. **Category Comparison Around Exams**  
+   By examining screen time categories separately, patterns emerge that align with later hypothesis testing. Productivity appears higher before exams, which supports the idea of increased study behavior.
+
+#### Summary
+
+The EDA provides a clear overview of my screen time habits and highlights several important behavioral patterns. These insights motivated the hypothesis that productivity usage changes around exam periods and guided the development of the statistical tests performed in the next section.
+
+### 2. **Hypothesis Testing**
+
+This section analyzes whether productivity-related screen time changes around exam days. Since productivity apps often reflect study activity, I expected productivity to increase before exams and decrease afterward.
+
+#### Hypotheses
+- **H₀ (Null Hypothesis):**  
+  There is no difference in productivity screen time between *Before Exam*, *Exam Day*, and *After Exam* days.
+
+- **H₁ (Alternative Hypothesis):**  
+  Productivity screen time is higher before an exam and lower on the exam day and the day after.
+
+
+#### Methodology
+
+1. Each day in the dataset was labeled as one of the following based on exam timing:
+   - Before Exam  
+   - Exam Day  
+   - After Exam  
+
+2. The mean productivity screen time was compared across these three groups.
+
+3. Two statistical tests were applied:
+   - **One-Way ANOVA** to test for overall differences among the groups.
+   - **Tukey HSD Post-Hoc Test** to identify which specific pairs of groups differ.
+
+These steps follow the hypothesis testing methods introduced in the DSA210 course.
+
+
+#### Results
+
+##### One-Way ANOVA
+- F-statistic: 8.56  
+- p-value: 0.000744  
+
+Since the p-value is below 0.05, the null hypothesis is rejected.  
+This indicates that the groups differ significantly.
+
+##### Tukey HSD Post-Hoc Test
+The Tukey analysis shows statistically significant differences between:
+
+- Before Exam vs Exam Day  
+- Before Exam vs After Exam  
+- Exam Day vs After Exam  
+
+## Conclusion
+
+The results support the alternative hypothesis. Productivity screen time is higher before an exam, likely due to increased study activity, and decreases both on the exam day and on the day after. This suggests a clear behavioral pattern in how productivity-related screen time shifts around exam periods.
 
 ### 3. **ML Model**  
 - **Goal:** Predict daily total minutes and how it is spent (e.g. 1 hour fot entartainment, 30 minutes for productivity etc.)
@@ -83,10 +148,6 @@ The .CSV file will contain this format:
 | **Phase 3** | ML implementation | **Jan 2, 2026** |
 | **Phase 4** | Final report & submission | **Jan 9, 2026** |
 
-
-
-
-  
 
 
 
