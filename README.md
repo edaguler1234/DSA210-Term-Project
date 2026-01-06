@@ -53,7 +53,6 @@ The .CSV file will contain this format:
 The EDA explores my daily screen time patterns across different categories such as social media, productivity, entertainment, creativity, games, and others. The goal of this section was to understand the general behavior of my screen usage and identify early patterns that could support later hypothesis testing and modeling.
 
 #### Key Findings
-
 1. **Daily Screen Time Trends**  
    A line plot of total screen time across the recording period shows fluctuations from day to day, with certain peaks likely related to weekends or days without academic responsibilities.
 
@@ -127,18 +126,39 @@ The Tukey analysis shows statistically significant differences between:
 
 The results support the alternative hypothesis. Productivity screen time is higher before an exam, likely due to increased study activity, and decreases both on the exam day and on the day after. This suggests a clear behavioral pattern in how productivity-related screen time shifts around exam periods.
 
-### 3. **ML Model**  
-- **Goal:** Predict daily total minutes and how it is spent (e.g. 1 hour fot entartainment, 30 minutes for productivity etc.)
-- **Features:** notifications, pickups, sleep hours, exam day, trip day, activity day, weekend etc.
-- **Evaluation:**  Errors are going to be evaluated with predicted vs actual data.
+### 3. **Machine Learning Models**
 
-## Expected Results  
-- Cleaned dataset (data/screen_time_log.csv)  
-- EDA and correlation visuals (various plots)  
-- Statistical test results
-- ML model accuracy/performance 
-- Visualization of **actual vs predicted screen time**  
-- Discussion of factors that influence daily screen usage  
+The machine learning component of this project aims to evaluate whether daily screen time can be predicted using a limited set of contextual and interaction-based features. Rather than focusing solely on prediction accuracy, this section emphasizes model comparison, generalization, and understanding the limitations of applying machine learning to real-world behavioral data.
+
+#### Feature Sets
+Three different feature configurations were considered:
+
+- **Context-only:** exam day, activity day, weekend  
+- **Interaction-only:** notifications, pickups  
+- **Combined:** context and interaction features together  
+
+The target variable for all models is **total daily screen time (total_minutes)**.
+
+#### Evaluation Strategy
+To preserve the temporal structure of the data, the dataset was split using a **time-ordered holdout approach**, where the first 80% of days were used for training and the remaining 20% for testing.  
+In addition to this internal evaluation, a separate dataset containing **unseen future days** was used for **external evaluation**, allowing assessment of model generalization.
+
+Model performance was evaluated using:
+- Mean Absolute Error (MAE)  
+- Root Mean Squared Error (RMSE)  
+- R² score  
+
+#### Linear Regression (Baseline)
+Linear Regression was applied as a baseline model across all three feature sets. The results showed limited predictive performance, with negative R² values on both the holdout and external evaluation datasets. This indicates that linear models were unable to capture the high variability and noise present in daily screen time behavior.
+
+#### Decision Tree Regression
+To account for potential non-linear and conditional relationships, Decision Tree Regression models were trained using the same feature sets. While decision trees offer greater flexibility, they exhibited poor generalization performance on unseen data, suggesting overfitting due to the small dataset size and the complexity of human behavior.
+
+## Conclusion
+Overall, the machine learning analysis demonstrates that daily screen time is difficult to predict accurately using simple supervised learning models and limited data. The results highlight the importance of model evaluation, comparison, and understanding methodological limitations, rather than focusing solely on predictive accuracy.
+
+### Discussion
+-------
 
 ## Project Timeline  
 | Phase | Description | Deadline |
