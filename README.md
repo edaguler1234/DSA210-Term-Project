@@ -3,7 +3,9 @@
 **Course:** DSA210 - Introduction to Data Science (Fall 2025)  
 **Student:** Eda Güler
 
-#Project Motivation
+You can find the EDA & Hypothesis Testing parts at the notebook named EDA_and_HypoyhesisTesting.ipynb; the part where ML models added is in edaguler_DSA210.ipynb 
+
+# Project Motivation
 
 Digital devices occupy a large part of our daily lives. Understanding how and why our screen usage changes can provide valuable insight into productivity, attention, and well-being.  
 
