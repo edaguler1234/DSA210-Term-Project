@@ -3,14 +3,12 @@
 **Course:** DSA210 - Introduction to Data Science (Fall 2025)  
 **Student:** Eda Güler
 
-You can find the EDA & Hypothesis Testing parts at the notebook named EDA_and_HypoyhesisTesting.ipynb; the part where ML models added is in edaguler_DSA210.ipynb 
-
 # Project Motivation
 
 Digital devices occupy a large part of our daily lives. Understanding how and why our screen usage changes can provide valuable insight into productivity, attention, and well-being.  
 
 This project aims to **analyze my daily screen time data** collected from my digital devices using Screen Time.  
-By combining this data with contextual variables (such as exam days, trips, or social activities), I aim to identify if there are routines and build a **machine learning model** that can predict future screen time behavior (after data collection phase, I will continue to record my daily data to see if predictions are going to match with the real data).
+With this information combined with other factors related to the context where this information is being gathered (exam days, trips, social occasions, etc.), I try to find patterns and develop a **machine learning model** to predict future behaviors related to screen time (I will continue collecting information after this study is over to verify if predictions made match reality).
 
 The ultimate goal is to evaluate how accurately such a machine can estimate my real-world screen habits and what factors most influence digital usage.
 
@@ -77,11 +75,9 @@ The EDA explores my daily screen time patterns across different categories such 
    By examining screen time categories separately, patterns emerge that align with later hypothesis testing. Productivity appears higher before exams, which supports the idea of increased study behavior.
 
 #### Summary
-
-The EDA provides a clear overview of my screen time habits and highlights several important behavioral patterns. These insights motivated the hypothesis that productivity usage changes around exam periods and guided the development of the statistical tests performed in the next section.
+EDA provides a clear overview of my screen time habits and highlights several important behavioral patterns. These insights motivated the hypothesis that productivity usage changes around exam periods and guided the development of the statistical tests performed in the next section.
 
 ### 2. **Hypothesis Testing**
-
 This section analyzes whether productivity-related screen time changes around exam days. Since productivity apps often reflect study activity, I expected productivity to increase before exams and decrease afterward.
 
 #### Hypotheses
@@ -93,7 +89,6 @@ This section analyzes whether productivity-related screen time changes around ex
 
 
 #### Methodology
-
 1. Each day in the dataset was labeled as one of the following based on exam timing:
    - Before Exam  
    - Exam Day  
@@ -154,24 +149,11 @@ Model performance was evaluated using:
 Linear Regression was applied as a baseline model across all three feature sets. The results showed limited predictive performance, with negative R² values on both the holdout and external evaluation datasets. This indicates that linear models were unable to capture the high variability and noise present in daily screen time behavior.
 
 #### Decision Tree Regression
-To account for potential non-linear and conditional relationships, Decision Tree Regression models were trained using the same feature sets. While decision trees offer greater flexibility, they exhibited poor generalization performance on unseen data, suggesting overfitting due to the small dataset size and the complexity of human behavior.
+To account for potential non-linear and conditional relationships, Decision Tree Regression models were trained using the same feature sets.  Though decision trees have higher flexibility, they performed very poorly on the verification set, indicating potential overfitting based on the size of the data and its complexity from human behavior.
 
 ## Conclusion
-Overall, the machine learning analysis demonstrates that daily screen time is difficult to predict accurately using simple supervised learning models and limited data. The results highlight the importance of model evaluation, comparison, and understanding methodological limitations, rather than focusing solely on predictive accuracy.
+This evaluation shows that there is evidence of the effect of screen exposure on various factors, but these factors are not linear and data is not sufficient for accurate predictions via supervised machine learning algorithms. This is further illustrated as Linear Regression and Decision Tree Regression fail to demonstrate accurate predictions for various factors affecting daily screen exposure.
 
-### Discussion
--------
-
-## Project Timeline  
-| Phase | Description | Deadline |
-|-------|--------------|-----------|
-| **Phase 1** | Project proposal | **Oct 31, 2025** |
-| **Phase 2** | Data collection & EDA | **Nov 28, 2025** |
-| **Phase 3** | ML implementation | **Jan 2, 2026** |
-| **Phase 4** | Final report & submission | **Jan 9, 2026** |
-
-
-
-
+Instead of having good predictive power, this project focuses on comprehending behavioral patterns, analyzing model assumptions, and being aware of model limitations when using machine learning. Future improvements in this project should focus on longer periods of data acquisition, improved contextual features, and improved modeling techniques.
 
 
